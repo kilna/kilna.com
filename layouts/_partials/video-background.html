@@ -1,0 +1,12 @@
+{{/* Modern HTML5 Background Video Player with WebM optimization and animated gradient fallback */}}
+<div id="videoContainer" class="video-container">
+  <!-- Animated gradient background while video loads -->
+  <div id="gradientBackground" class="gradient-background"></div>
+  
+  <!-- Video element -->
+  <video id="bgndVideo" class="html5-background-video" autoplay muted loop playsinline>
+    <source src="/videos/background.webm" type="video/webm">
+    <source src="/videos/background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>

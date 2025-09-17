@@ -1,0 +1,24 @@
+{{/*
+  Two Column Layout Partial
+  Usage: {{ partial "two-column.html" (dict "left" $leftContent "right" $rightContent "class" "add-top-half") }}
+  
+  Parameters:
+  - left: Left column content (can be HTML string or template)
+  - right: Right column content (can be HTML string or template)
+  - class: Additional CSS classes for the row
+  - leftClass: Additional CSS classes for left column (default: "col-6")
+  - rightClass: Additional CSS classes for right column (default: "col-6")
+*/}}
+
+{{ $leftClass := .leftClass | default "col-6" }}
+{{ $rightClass := .rightClass | default "col-6" }}
+{{ $rowClass := .class }}
+
+<div class="row{{ if $rowClass }} {{ $rowClass }}{{ end }}">
+  <article class="{{ $leftClass }}">
+    {{ .left | safeHTML }}
+  </article>
+  <article class="{{ $rightClass }}">
+    {{ .right | safeHTML }}
+  </article>
+</div>

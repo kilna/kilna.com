@@ -1,0 +1,33 @@
+{{/*
+  Section Header Partial
+  Usage: {{ partial "section-header.html" (dict "title" "About" "subtitle" "Kilna Companies:<br/>Exposing action..." "theme" "dark") }}
+  
+  Parameters:
+  - title: The main heading
+  - subtitle: Optional subtitle/description (can include HTML)
+  - theme: "dark" for dark background sections, empty for default
+  - align: "left" (default), "right", "center"
+*/}}
+
+{{ $title := .title }}
+{{ $subtitle := .subtitle }}
+{{ $theme := .theme }}
+{{ $align := .align | default "left" }}
+{{ $rightAlign := eq $align "right" }}
+
+<section class="inner-section page-head {{ if eq $theme "dark" }}about-head{{ else }}services-head{{ end }}">
+  <section class="container">
+    <div class="row">
+      <article class="col-6 text-{{ if $rightAlign }}right{{ else }}left{{ end }}">
+        <h1 class="white">{{ $title }}</h1>
+        <div class="liner{{ if eq $theme "dark" }} liner-dark{{ end }}"></div>
+      </article>
+      {{ if $subtitle }}
+      <article class="col-6 text-{{ if $rightAlign }}left{{ else }}right{{ end }}">
+        <h3 class="white">{{ $subtitle | safeHTML }}</h3>
+        <div class="liner-high{{ if eq $theme "dark" }} liner-high-dark{{ end }}"></div>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+</section>

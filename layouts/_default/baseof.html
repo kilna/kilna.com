@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.LanguageCode | default "en" }}">
+<head>
+  {{- block "head" . -}}
+  {{- partial "head.html" . -}}
+  {{- end -}}
+</head>
+<body>
+
+{{/* Video background for homepage */}}
+{{- if .IsHome -}}
+{{- partial "video-background.html" . -}}
+{{- end -}}
+
+{{- block "nav" . -}}
+{{- partial "nav.html" . -}}
+{{- end -}}
+
+<main style="position:relative; z-index: 5;">
+{{- block "main" . -}}
+{{ .Content }}
+{{- end -}}
+</main>
+
+{{- block "footer" . -}}
+{{- partial "footer.html" . -}}
+{{- end -}}
+
+{{- block "scripts" . -}}
+{{- partial "scripts.html" . -}}
+{{- end -}}
+</body>
+</html>

@@ -1,0 +1,772 @@
+/* Works grid */
+.works-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2px;
+  padding: 0;
+}
+
+.works-grid li {
+  margin: 0;
+}
+
+.works-grid li a {
+  display: block;
+  background: var(--kilna-black);
+  text-decoration: none;
+}
+
+.works-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.works-grid .item_info {
+  padding: 0.5rem;
+  background: var(--kilna-black);
+  color: var(--kilna-white);
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.works-grid .item_info h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: var(--kilna-red);
+}
+
+.works-grid .item_info p {
+  margin: 0;
+  font-size: 0.7rem;
+  opacity: 0.9;
+  line-height: 1.2;
+}
+
+/* Quotes parallax */
+.quotes-parallax {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--kilna-black);
+  padding: 0 2rem;
+}
+
+.quotes-parallax .container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.quotes-parallax .quotes-wrap {
+  width: 100%;
+  padding: 2rem;
+  background: rgba(255,255,255,0.5);
+  border-radius: 12px;
+}
+:root {
+  --kilna-black:             #000000;
+  --kilna-white:             #ffffff;
+  --kilna-trans:             #00000000;
+  --kilna-nearwhite:         #f0f0f0;
+  --kilna-red:              #cc0000;
+  --kilna-red-trans-less:   #cc000040;
+  --kilna-red-trans:        #cc000080;
+  --kilna-red-trans-more:   #cc0000c0;
+  --kilna-red-nearblack:    #330000;
+  --kilna-red-dark:         #990000;
+  --kilna-red-light:        #ff6666;
+  --kilna-red-nearwhite:    #ffe6e6;
+  --kilna-darken:           #00000040;
+  --kilna-darken-more:      #00000070;
+  --kilna-darken-most:      #000000a0;
+  --kilna-lighten:          #ffffff40;
+  --kilna-lighten-more:     #ffffff70;
+  --kilna-lighten-most:     #ffffffa0;
+}
+
+/* Fonts now loaded via Google Fonts in head.html */
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  color: var(--kilna-black);
+  background: linear-gradient(45deg, #000 0%, #333 50%, #000 100%);
+  background-attachment: fixed;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-feature-settings: "kern" 1;
+  text-rendering: optimizeLegibility;
+  font-size: clamp(max(1rem, 16px), 1.6vw, min(1.25rem, 20px));
+  min-height: 100vh;
+  max-width: 100vw;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--kilna-black);
+  font-family: "Montserrat", sans-serif;
+  margin: 0.5rem 0;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5em; font-weight: 700; }
+h2 { font-size: 2em; font-weight: 600; }
+h3 { font-size: 1.75em; font-weight: 600; }
+h4 { font-size: 1.5em; font-weight: 500; }
+h5 { font-size: 1.25em; font-weight: 500; }
+h6 { font-size: 1.125em; font-weight: 500; }
+
+/* Container and modern CSS Grid system */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.col-12 { grid-column: span 12; }
+.col-8 { grid-column: span 8; }
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+.col-3 { grid-column: span 3; }
+.col-9 { grid-column: span 9; }
+
+/* Clean mobile/desktop breakpoint at 768px */
+@media all and (max-width: 768px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .col-6, .col-4, .col-3, .col-8, .col-12, .col-9 {
+    grid-column: span 1;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .service-short {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .service-short-icon {
+    order: 1;
+  }
+  
+  .service-short-info {
+    order: 2;
+  }
+}
+
+/* Navigation */
+.menu {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(135deg, rgba(128, 128, 128, 0.8), rgba(96, 96, 96, 0.8));
+  backdrop-filter: blur(10px);
+  transition: top 0.3s ease;
+}
+
+.menu.scrolled {
+  top: 0;
+}
+
+.sm-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sm-wrap a {
+  color: var(--kilna-white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.25rem 0.5rem;
+}
+
+.sm-wrap a:hover {
+  color: var(--kilna-red-light);
+}
+
+.nav-logo {
+  height: 30px;
+  width: auto;
+  vertical-align: middle;
+  max-width: 120px;
+  min-width: 60px;
+  object-fit: contain;
+}
+
+@media all and (max-width: 768px) {
+  .nav-logo {
+    height: 24px;
+    max-width: 100px;
+    min-width: 50px;
+  }
+  
+  .sm-wrap {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+  }
+  
+  .sm-wrap a {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+.main-nav {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.main-nav a {
+  color: var(--kilna-white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--kilna-red-light);
+}
+
+/* Header */
+.masthead {
+  padding: 2rem 0;
+  background: var(--kilna-darken);
+}
+
+.main-logo {
+  width: 80% !important;
+  height: auto;
+  max-height: none !important;
+  max-width: 80% !important;
+  display: block;
+  margin: 0 auto 50px !important;
+}
+
+/* Target the logo image directly in the intro section */
+.intro img {
+  width: 80% !important;
+  max-width: 80% !important;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px !important;
+  opacity: 0.5;
+  filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.75)) drop-shadow(0 0 45px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 67px rgba(255, 255, 255, 0.3));
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.intro img:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.75)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.75)) drop-shadow(0 0 90px rgba(255, 255, 255, 0.45));
+}
+
+/* Video background section */
+.intro {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--kilna-white);
+  padding: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.intro h1 {
+  color: var(--kilna-white);
+  text-shadow: 2px 2px 4px var(--kilna-black);
+}
+
+.intro .big-text {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+.intro .container {
+  padding: 0;
+  text-align: center !important;
+  width: 100%;
+}
+
+/* Override text-left for intro section */
+.intro .text-left {
+  text-align: center !important;
+}
+
+/* Text rotation styles removed */
+
+.scroll-down {
+  display: block;
+  margin: 2rem auto 0;
+  font-size: 1.8rem;
+  animation: bounce 2s infinite;
+  border: 2.5px dashed var(--kilna-red);
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  color: var(--kilna-red);
+  font-weight: normal;
+  box-shadow: none !important;
+  border-radius: 8px;
+  text-shadow: none !important;
+  text-align: center;
+  width: fit-content;
+  opacity: 0.8;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Sections */
+.page-section {
+  padding: 4rem 0;
+}
+
+.inner-section {
+  padding: 2rem 0;
+}
+
+.page-head {
+  background: var(--kilna-red);
+  color: var(--kilna-white);
+}
+
+.page-head h1, .page-head h3 {
+  color: var(--kilna-white);
+}
+
+.about-head {
+  background: var(--kilna-black);
+}
+
+.services-head {
+  background: var(--kilna-red);
+}
+
+.contact-head {
+  background: var(--kilna-black);
+}
+
+/* About section */
+.about-info {
+  background: var(--kilna-white);
+  color: var(--kilna-black);
+}
+
+.promo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.sub-heading {
+  color: var(--kilna-red);
+  margin-bottom: 1rem;
+}
+
+/* Services section */
+.services-info {
+  background: var(--kilna-nearwhite);
+}
+
+.service-block {
+  margin-bottom: 3rem;
+  background: var(--kilna-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.service-short {
+  padding: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: var(--kilna-red-dark);
+  color: var(--kilna-white);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.service-short:hover {
+  background-color: var(--kilna-red);
+}
+
+.service-short-icon img {
+  max-width: 80px;
+  height: auto;
+}
+
+.service-info {
+  padding: 2rem;
+  border-top: 1px solid var(--kilna-nearwhite);
+}
+
+/* Lightweight carousel for accolades */
+.accolades-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.accolades-carousel .item {
+  display: none;
+  width: 100%;
+}
+
+.accolades-carousel .item.active {
+  display: block;
+}
+
+.accolades-carousel img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Lightweight carousel for quotes */
+.quote-carousel {
+  position: relative;
+  overflow: visible;
+  height: auto;
+  min-height: 50vh;
+}
+
+.quote-carousel .item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  padding: 2rem;
+}
+
+.quote-carousel .item.active {
+  opacity: 1;
+}
+
+.quote-carousel h3 {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 0.5rem 0;
+}
+
+.quote-carousel img {
+  max-width: 40px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Accent lines - DRY approach with base class and modifiers */
+.liner {
+  height: 5px;
+  background: var(--kilna-black);
+  display: inline-block;
+}
+
+/* Width modifiers */
+.liner { width: 50px; } /* default */
+.liner-mid { width: 30px; }
+.liner-high { width: 100px; float: right; }
+.liner-big { width: 120px; height: 10px; background: var(--kilna-red); }
+.liner-center { width: 30px; margin: 1rem auto; background: var(--kilna-red); }
+
+/* Color modifiers */
+.liner-dark, .liner-high-dark { background: var(--kilna-red); }
+
+/* Apply base liner styles to all liner variants */
+.liner-mid, .liner-big, .liner-center {
+  height: 5px;
+  background: var(--kilna-black);
+  display: inline-block;
+}
+
+.liner-high {
+  height: 5px;
+  display: inline-block;
+}
+
+
+.scroll-down:hover {
+  background: var(--kilna-red);
+  color: var(--kilna-white);
+}
+
+
+/* Team section */
+.memebers-team {
+  background: var(--kilna-white);
+  padding: 3rem 0;
+}
+
+.team-block {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.team-thumb {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.team-block h3 {
+  color: var(--kilna-red);
+  margin-bottom: 0.5rem;
+}
+
+.team-block h6 {
+  color: var(--kilna-black);
+  margin-bottom: 0.5rem;
+}
+
+.team-block h5 {
+  color: var(--kilna-black);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.team-block ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.team-block ul img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.team-block ul img:hover {
+  transform: scale(1.1);
+}
+
+/* Contact section */
+.contact-info {
+  background: var(--kilna-nearwhite);
+  padding: 3rem 0;
+}
+
+.contact-details {
+  margin: 2rem 0;
+}
+
+
+
+/* Utility classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.white { color: var(--kilna-white) !important; }
+.dark { color: var(--kilna-black) !important; }
+
+
+/* Footer */
+.footer {
+  background: var(--kilna-black);
+  color: var(--kilna-white);
+  padding: 2rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 100; /* Ensure footer appears above everything except nav */
+  margin-top: 2rem; /* Add some space above footer */
+  /* Ensure footer is visible and positioned correctly */
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+  clear: both;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+}
+
+/* Modern HTML5 background video player */
+#bgndVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Use viewport height instead of 100% */
+  z-index: 0;
+  pointer-events: none;
+  background: var(--kilna-black);
+  overflow: hidden;
+}
+
+/* Video container */
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Animated oval gradient background while video loads */
+.gradient-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #e0e0e0, #c0c0c0, #d0d0d0, #b0b0b0);
+  background-size: 200% 200%;
+  animation: ovalGradientShift 10s ease infinite;
+  z-index: 1;
+}
+
+@keyframes ovalGradientShift {
+  0% {
+    background-position: 0% 0%;
+    background-size: 200% 200%;
+  }
+  25% {
+    background-position: 100% 0%;
+    background-size: 300% 150%;
+  }
+  50% {
+    background-position: 100% 100%;
+    background-size: 150% 300%;
+  }
+  75% {
+    background-position: 0% 100%;
+    background-size: 250% 200%;
+  }
+  100% {
+    background-position: 0% 0%;
+    background-size: 200% 200%;
+  }
+}
+
+/* Hide gradient when video is loaded */
+.video-loaded .gradient-background {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.html5-background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  /* This is the magic - object-fit: cover works exactly like background-size: cover */
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+/* Show video when loaded */
+.video-loaded .html5-background-video {
+  opacity: 1;
+}
+
+/* Smooth scrolling handled by JavaScript */
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Spacing utilities - using consistent scale */
+.pad { padding: 1rem; }
+.pad-sm { padding: 0.5rem; }
+.pad-lg { padding: 2rem; }
+
+.pt-1 { padding-top: 1rem; }
+.pb-1 { padding-bottom: 1rem; }
+.py-1 { padding-top: 1rem; padding-bottom: 1rem; }
+
+.mt-1 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
+.my-1 { margin-top: 1rem; margin-bottom: 1rem; }
+
+/* Legacy aliases for backward compatibility */
+.add-top-half { padding-top: 1rem; }
+.add-bottom-half { padding-bottom: 1rem; }
+
+/* Grid system is now defined above with modern CSS Grid */

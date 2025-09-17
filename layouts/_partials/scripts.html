@@ -1,0 +1,76 @@
+{{/* Custom JavaScript */}}
+{{ $js := resources.Get "js/main.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}"></script>
+
+{{/* HTML5 Background Video with Animated Gradient Loading */}}
+{{ if and .IsHome .Site.Params.video_background }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('bgndVideo');
+  const videoContainer = document.getElementById('videoContainer');
+  
+  if (video && videoContainer) {
+    let videoLoaded = false;
+    let fallbackTimer = null;
+    
+    // Function to show video and hide gradient
+    function showVideo() {
+      if (videoLoaded) return; // Prevent multiple calls
+      videoLoaded = true;
+      videoContainer.classList.add('video-loaded');
+      
+      // Clear fallback timer if video loads successfully
+      if (fallbackTimer) {
+        clearTimeout(fallbackTimer);
+        fallbackTimer = null;
+      }
+    }
+    
+    // Function to keep gradient visible (fallback)
+    function keepGradient() {
+      if (videoLoaded) return; // Don't override if video already loaded
+      videoContainer.classList.remove('video-loaded');
+    }
+    
+    // Multiple event listeners for better detection
+    video.addEventListener('canplaythrough', showVideo);
+    video.addEventListener('loadeddata', showVideo);
+    video.addEventListener('playing', showVideo);
+    video.addEventListener('loadstart', function() {
+      // Video started loading, set a longer timeout
+      if (fallbackTimer) clearTimeout(fallbackTimer);
+      fallbackTimer = setTimeout(keepGradient, 8000);
+    });
+    
+    // Handle video errors - keep gradient visible
+    video.addEventListener('error', keepGradient);
+    video.addEventListener('stalled', keepGradient);
+    video.addEventListener('suspend', keepGradient);
+    
+    // Check if video is already loaded (cached)
+    if (video.readyState >= 3) { // HAVE_FUTURE_DATA or higher
+      showVideo();
+    } else {
+      // Set initial fallback timer
+      fallbackTimer = setTimeout(keepGradient, 3000);
+    }
+    
+    // Try to play the video
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // If play fails, keep gradient visible
+        keepGradient();
+      });
+    }
+    
+    // Additional check: monitor video progress
+    video.addEventListener('progress', function() {
+      if (video.buffered.length > 0 && video.buffered.end(0) > 1) {
+        showVideo();
+      }
+    });
+  }
+});
+</script>
+{{ end }}

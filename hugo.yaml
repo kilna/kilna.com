@@ -1,0 +1,96 @@
+baseURL: https://kilna.com
+title: Kilna Companies
+languageCode: en-us
+
+# Modern Hugo Configuration
+enableGitInfo: true
+enableRobotsTXT: true
+enableEmoji: true
+
+# Performance optimizations
+timeout: "30s"
+enableInlineShortcodes: true
+
+# Exclude files/dirs from processing and publication
+ignoreFiles: ['\\.af(photo|design)$', '^scripts/', '^source/', '(^|/)\.', '~$']
+
+# Asset processing
+imaging:
+  resampleFilter: "CatmullRom"
+  quality: 85
+  anchor: "Smart"
+
+# Markup configuration
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      attribute:
+        block: true
+        title: true
+  highlight:
+    style: "github"
+    lineNos: false
+    tabWidth: 2
+
+params:
+  description: "A San Diego-based creative collective covering film, music, design and technology"
+  canonical_url: https://kilna.com
+  author: "Kilna, Anthony"
+  tagline: "Exposition Through Action"
+  email: kilna@kilna.com
+  github: https://github.com/kilna
+  
+  # Video background (local HTML5 video)
+  video_background: true
+
+outputs:
+  page: ["HTML", "plain", "simple"]
+  home: ["HTML"]
+  section: ["HTML"]
+  taxonomy: ["HTML"]
+  term: ["HTML"]
+
+outputFormats:
+  plain:
+    mediaType: "text/plain"
+    baseName: "plain"
+    isPlainText: true
+    permalinkable: false
+  simple:
+    mediaType: "text/html"
+    baseName: "simple"
+    isPlainText: false
+    permalinkable: false
+
+mediaTypes:
+  "text/plain":
+    suffixes: ["txt"]
+
+menus:
+  main:
+  - identifier: home
+    weight: 1
+    name: Home
+    url: /
+  - identifier: about
+    weight: 10
+    name: About
+    url: /#about
+  - identifier: services
+    weight: 20
+    name: Services
+    url: /#services
+  - identifier: portfolio
+    weight: 30
+    name: Works
+    url: /#portfolio
+  - identifier: team
+    weight: 40
+    name: Team
+    url: /#team
+  - identifier: contact
+    weight: 50
+    name: Contact
+    url: /#contact

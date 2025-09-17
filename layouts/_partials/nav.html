@@ -1,0 +1,15 @@
+<nav class="menu" id="sm">
+  <div class="sm-wrap">
+    <i class="icon-remove menu-close"></i>
+    {{ range .Site.Menus.main }}
+      {{ if eq .Identifier "home" }}
+        <a class="scroll" href="{{ .URL }}">
+          <img alt="Kilna Companies" class="nav-logo" src="/images/logo_transparent.png"/>
+        </a>
+      {{ else }}
+        <a class="scroll" href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+    {{ end }}
+  </div>
+  <div id="sm-trigger"></div>
+</nav>
