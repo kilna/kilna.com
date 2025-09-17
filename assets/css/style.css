@@ -2,8 +2,8 @@
 .works-grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0;
   padding: 0;
 }
 
@@ -15,6 +15,7 @@
   display: block;
   background: var(--kilna-black);
   text-decoration: none;
+  border: 4px solid var(--kilna-black);
 }
 
 .works-grid img {
@@ -538,6 +539,15 @@ h6 { font-size: 1.125em; font-weight: 500; }
 
 /* Color modifiers */
 .liner-dark, .liner-high-dark { background: var(--kilna-red); }
+
+/* Specific rule for red high liners */
+.liner-high.liner-high-dark {
+  background: var(--kilna-red);
+  float: right;
+  width: 100px;
+  height: 5px;
+  display: inline-block;
+}
 
 /* Apply base liner styles to all liner variants */
 .liner-mid, .liner-big, .liner-center {
