@@ -1,0 +1,40 @@
+body{
+}
+.page-section{
+	background: #fff;
+}
+
+.video-poster-image {
+	background:url('../images/poster.jpg') !important;
+	background-repeat:no-repeat;
+	background-size:cover !important;
+	width:100%;
+	height:100%;
+	z-index:0 !important;
+	backface-visibility:hidden;
+	background-position:center center !important;
+}
+.player{
+	font-size: 1px;
+}
+ .intro-08-youtube-bg h4{
+	margin-bottom: 20px;
+}
+ .intro-08-youtube-bg h4 > span{
+	padding: 7px;
+	font-size: 12px;
+	line-height:19px;
+font-family:"OpenSansLight";
+	text-transform: uppercase;
+	color: #fff !important;
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+ .intro-08-youtube-bg h3{
+	font-size: 64px;
+	line-height:71px;
+	font-family:"MontserratRegular";
+	text-transform: uppercase;
+	color: #fff !important;
+	margin-bottom: 40px;
+}
