@@ -78,6 +78,10 @@ menus:
     weight: 10
     name: About
     url: /#about
+  - identifier: current-projects
+    weight: 15
+    name: Current Projects
+    url: /#current-projects
   - identifier: services
     weight: 20
     name: Services

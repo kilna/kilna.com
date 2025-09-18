@@ -7,45 +7,83 @@
   padding: 0;
 }
 
-.works-grid li {
+/* Current Projects grid - much larger tiles */
+.current-projects-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 0;
+  padding: 0;
+}
+
+.works-grid li,
+.current-projects-grid li {
   margin: 0;
 }
 
-.works-grid li a {
-  display: block;
+.works-grid li a,
+.current-projects-grid li a {
+  display: flex;
+  flex-direction: column;
   background: var(--kilna-black);
   text-decoration: none;
   border: 4px solid var(--kilna-black);
+  height: 100%;
+}
+
+/* Current projects get thicker borders */
+.current-projects-grid li a {
+  border: 16px solid var(--kilna-black);
 }
 
 .works-grid img {
   display: block;
   width: 100%;
   height: auto;
+  flex: 2;
+  object-fit: cover;
 }
 
-.works-grid .item_info {
+.current-projects-grid img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  flex: 2;
+  object-fit: contain;
+  object-position: center;
+  background: var(--kilna-black);
+  padding: 0;
+}
+
+.works-grid .item_info,
+.current-projects-grid .item_info {
   padding: 0.5rem;
   background: var(--kilna-black);
   color: var(--kilna-white);
-  min-height: 60px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.works-grid .item_info h3 {
+.works-grid .item_info h3,
+.current-projects-grid .item_info h3 {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   line-height: 1.2;
   color: var(--kilna-red);
 }
 
-.works-grid .item_info p {
-  margin: 0;
-  font-size: 0.7rem;
+.works-grid .item_info p,
+.current-projects-grid .item_info p {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.05rem;
   opacity: 0.9;
   line-height: 1.2;
+}
+
+.current-projects-grid .item_info p:last-child {
+  margin-bottom: 0;
 }
 
 /* Quotes parallax */
@@ -69,7 +107,7 @@
 .quotes-parallax .quotes-wrap {
   width: 100%;
   padding: 2rem;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.9);
   border-radius: 12px;
 }
 :root {
@@ -225,11 +263,18 @@ h6 { font-size: 1.125em; font-weight: 500; }
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 1rem;
+  border: 2px dashed transparent;
+  border-radius: 8px;
+  text-shadow: none;
+  text-transform: uppercase;
 }
 
 .sm-wrap a:hover {
-  color: var(--kilna-red-light);
+  color: var(--kilna-black);
+  font-weight: bold;
+  border: 2px dashed var(--kilna-red);
+  border-radius: 8px;
 }
 
 .nav-logo {
@@ -275,7 +320,8 @@ h6 { font-size: 1.125em; font-weight: 500; }
 }
 
 .main-nav a:hover {
-  color: var(--kilna-red-light);
+  color: var(--kilna-red);
+  font-weight: bold;
 }
 
 /* Header */
@@ -349,12 +395,13 @@ h6 { font-size: 1.125em; font-weight: 500; }
 .scroll-down {
   display: block;
   margin: 2rem auto 0;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   animation: bounce 2s infinite;
   border: 2.5px dashed var(--kilna-red);
-  padding: 0.8rem 1.5rem;
+  padding: 1.2rem 2rem;
   text-decoration: none;
   color: var(--kilna-red);
+  text-transform: uppercase;
   font-weight: normal;
   box-shadow: none !important;
   border-radius: 8px;
@@ -563,8 +610,8 @@ h6 { font-size: 1.125em; font-weight: 500; }
 
 
 .scroll-down:hover {
-  background: var(--kilna-red);
-  color: var(--kilna-white);
+  background: transparent;
+  color: var(--kilna-black);
 }
 
 
