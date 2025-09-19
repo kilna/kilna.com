@@ -15,7 +15,7 @@ Visit us at [kilna.com](http://kilna.com)
 - **Hugo** - Static site generator
 - **CSS Custom Properties** - Modern CSS with custom variables
 - **Vanilla JavaScript** - No frameworks, clean and minimal
-- **YouTube Background Player** - Parallax video background
+- **HTML5 Video Background** - Modern video background with fallback
 - **Responsive Design** - Mobile-first approach
 - **Cloudflare Pages** - Deployment platform
 
@@ -25,7 +25,6 @@ Visit us at [kilna.com](http://kilna.com)
 - `layouts/` - Hugo template files
 - `assets/` - CSS, JavaScript, and processed assets
 - `static/` - Static files (images, fonts, etc.)
-- `orig/` - Original website files (preserved for reference)
 - `hugo.yaml` - Hugo configuration
 - `Makefile` - Build and development commands
 
@@ -84,7 +83,7 @@ This site follows a minimal, non-framework approach:
 
 ## Features
 
-- **Parallax Video Background** - YouTube video background on homepage
+- **HTML5 Video Background** - Modern video background with animated gradient fallback
 - **Responsive Navigation** - Mobile-friendly menu system
 - **Service Accordions** - Expandable service information
 - **Team Profiles** - Team member showcase
@@ -93,7 +92,7 @@ This site follows a minimal, non-framework approach:
 
 ## Deployment
 
-This project is deployed using Cloudflare Pages [[memory:8052250]]. The Makefile includes deployment commands that build the site for production.
+This project is deployed using Cloudflare Pages. The Makefile includes deployment commands that build the site for production.
 
 ## Author
 
